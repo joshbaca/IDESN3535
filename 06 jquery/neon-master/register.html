@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form validation in Javascript</title>
+	<link href="css/neon.css" rel="stylesheet">
+	<link href="../../neon sign/05 registration form/stussy.css" rel="stylesheet" type="text/css">
+	<link href="../stussy.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.getRgb.js"></script>
+    <script type="text/javascript" src="js/jquery.neon.js"></script>
+	<script>$(function() {$.initNeon()});</script>
+    <hr>
+	<title>Stussy</title>
+<hr>
+
+    <img src="stussy - images/logo.png"
+    style="width:200px;height:150px;">
+  <h1>
+
+   <h1>
+
+    <a href="http://www.stussy.com/us/mens" class="shop">SHOP MENS</a>  /
+    <a href="http://www.stussy.com/us/womens" class="shop">SHOP WOMENS</a>  /
+    <a href="stussy.html"class="shop">BLOG</a>
+</h1>
+<h2>
+   <a href="https://www.stussy.com/us/customer/account/login/" class="shop">ACCOUNT</a>  /
+  <a href="http://www.stussy.com/us/checkout/cart/" class="shop">CART</a>  /
+  
+  <a href ="register.html" class="register">REGISTER</a>
+</h2>
+
+<div id="wrapper">
+ 
+	<form method="POST" action="index.php" onsubmit="return Validate()" name="vForm">
+		<div>
+		  <input name="fullname" type="text" class="textInput" id="fullname" placeholder="full name" pattern="[a-zA-Z]{2,}" title="Minimum 2 characters" required />
+			<div id="name_error" class="val_error"></div>
+	  </div>
+		<div>
+		  <input type="email" name="email" class="textInput" placeholder="Email" required /> 
+			<div id="email_error" class="val_error"></div>
+		</div>
+		<div>
+		  <input type="password" name="password" class="textInput" placeholder="Password"pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$" title="Minimum 10 characters including 1 number" required />
+		</div>
+		<div>
+		  <input type="password" name="password_confirmation" class="textInput" placeholder="password confirmation">
+			<div id="password_error" class="val_error"></div>
+            <div>
+     	<legend>What is your</legend>
+        </div>       
+   <div id= "neon"
+		<h1 data-neon="basic" data-neon-params="blinks">Favorite Color</h1> 
+	</fieldset>
+</div>
+ <div id= "genre">
+ <legend>
+ <br> 
+  <form name="color" method="post" action="">
+ 
+  <input type="radio" name="color" id="bRad" value="b"><label for="bRad">Blue</label>
+ 
+  <input type="radio" name="color" id="rRad" value="r"><label for="rRad">Red</label>
+  
+  <input type="radio" name="color" id="pRad" value="p"><label for="pRad">Pink</label> <br>
+  </legend>
+    <div><input type="submit" class="btn" name="Submit" value="Submit">
+		</div>
+  <br>
+  <br>
+  </form>
+</div>
+		<div> </div>
+      
+	</form>
+    
+<script type="text/javascript">
+$(function() {
+	$( "#Slider1" ).slider(); 
+});
+$(function() {
+	$( "#Autocomplete1" ).autocomplete(); 
+});
+$(function() {
+	$( "#Slider2" ).slider(); 
+});
+</script>
+</body>
+</html>
+<!-- add javascript here -->
+<script type="text/javascript">
+
+	var cols = {
+  "r":"#FF0000",
+  "b":"#0000FF",
+  "p":"#FF00FF"
+} // no comma after the last
+window.onload=function() { // when the page loads
+  var rads = document.getElementsByName("color"); // all rads named color
+  for (var i=0;i<rads.length;i++) {
+    rads[i].onclick=function() {
+      document.body.style.backgroundColor=cols[this.value];
+    }
+  }
+}
+	// INPUT TEXT 
+	var fullname = document.forms["vForm"]["fullname"];
+	var email = document.forms["vForm"]["email"];
+	var password = document.forms["vForm"]["password"];
+	var password_confirmation = document.forms["vForm"]["password_confirmation"];
+	// ERROR OBJECTS
+	var name_error = document.getElementById("name_error");
+	var email_error = document.getElementById("email_error");
+	var password_error = document.getElementById("password_error");
+	// EVENT LISTENERS
+	fullname.addEventListener("blur", nameVerify, true);
+	email.addEventListener("blur", emailVerify, true);
+	function Validate(){
+		// VALIDATE FULL NAME
+		if(fullname.value.length<2){
+			name_error.textContent = "at least 2 characters";
+			fullname.style.border = "1px solid red";
+			fullname.focus();
+			return false;
+		}
+		// VALIDATE EMAIL
+		if(email.value.length<5){
+			email_error.textContent = "at least 5 characters";
+			email.style.border = "1px solid red";
+			email.focus();
+			return false;
+		}
+		
+		// VALIDATE PASSWORD
+		if (password.value != password_confirmation.value) {
+			password_error.textContent = "The two passwords do not match";
+			password.style.border = "1px solid red";
+			password_confirmation.style.border = "1px solid red";
+			password.focus();
+			return false;
+		}
+		// PASSWORD REQUIRED
+		if (password.value == "" || password_confirmation.value == "") {
+			password_error.textContent = "password requires 10 characters 1 number";
+			password.style.border = "1px solid red";
+			password_confirmation.style.border = "1px solid red";
+			password.focus();
+			return false;
+		}
+		
+	}
+	// ADD EVENT LISTENERS
+	function nameVerify(){
+		if (fullname.value != "2") {
+			name_error.innerHTML = "";
+			fullname.style.border = "1px solid #110E0F";
+			return true;
+		}
+	}
+	function emailVerify(){
+		if (email.value != "5") {
+			email_error.innerHTML = "";
+			email.style.border = "1px solid #110E0F";
+			return true;
+		}
+	}
+</script>
