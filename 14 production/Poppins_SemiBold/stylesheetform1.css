@@ -1,0 +1,29 @@
+@import url("../Poppins_Regular/stylesheet.css");
+@import url("../Poppins_Medium/stylesheet.css");
+@import url("../Poppins_Bold/stylesheet.css");
+@font-face {
+	font-family: 'Poppins SemiBold';
+	src: url('Poppins-SemiBold.ttf') format('truetype');
+div {
+	font-family: "Poppins Regular";
+	font-size: 16px;
+	color: #70c8bd;
+}
+a:link {
+	font-family: "Poppins Regular";
+	font-size: 14px;
+	color: #70c8bd;
+}
+.no-js .page.page-id-7.page-parent.page-template-default.custom-background #wrapper2 #sidebar4 .aa tr td #right div {
+	color: #70c8bd;
+}
+#right div {
+	font-family: "Poppins Regular";
+	font-size: 14px;
+	color: #70c8bd;
+}
+#class5 a: link {
+	font-family: "Poppins Medium";
+	font-size: 14px;
+	color: #70c8bd;
+}
